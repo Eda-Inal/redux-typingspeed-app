@@ -5,10 +5,12 @@ import { randomWords } from '../../redux/typingSlice';
 
 function Area() {
   const dispatch = useDispatch();
-  const { words, correct } = useSelector((state) => state.typing);
+  const { words} = useSelector((state) => state.typing);
 
   useEffect(() => {
     dispatch(randomWords());
+
+    
   }, [dispatch]);
 
   return (
@@ -32,6 +34,7 @@ function Area() {
               mr={2} 
               fontSize='18px' 
               whiteSpace='nowrap'
+              bg={word.background}
               color={word.color} // Kelimenin rengini buradan alalım
             >
               {word.turkish}

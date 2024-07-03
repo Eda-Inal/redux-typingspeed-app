@@ -1,17 +1,20 @@
 import { Input, Center } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { wordControl } from '../../redux/typingSlice';
+import {  wordControl } from '../../redux/typingSlice';
 
 function TextBox() {
   const dispatch = useDispatch();
   const correct = useSelector((state) => state.typing.correct);
   console.log("correct", correct);
   const [input, setInput] = useState("");
+  const [index,setIndex] = useState(0)
   
   const handleKeyDown = (event) => {
     if (event.key === ' ') {
       dispatch(wordControl(input));
+   
+
       setInput("");
     }
   };
