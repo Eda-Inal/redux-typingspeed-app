@@ -14,14 +14,24 @@ export const typingSlice = createSlice({
   },
   reducers: {
     randomWords: (state) => {
-      const randomWords = [];
-      for (let i = 0; i < 300; i++) {
-        const randomIndex = Math.floor(Math.random() * state.words.length);
-        randomWords.push(state.words[randomIndex]);
-      }
-      state.words = randomWords;
-      randomWords[0].background = 'gray.300';
-    },
+        // Mevcut kelimelerin kopyasını oluştur
+        const shuffledWords = [...state.words];
+      
+        // Kopyalanan diziyi karıştır
+        for (let i = shuffledWords.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]];
+        }
+      
+        // state.words dizisine karıştırılmış kelimeleri atayın
+        state.words = shuffledWords;
+      
+        // Karıştırılmış dizinin ilk kelimesinin arka plan rengini ayarla
+        if (shuffledWords.length > 0) {
+          shuffledWords[0].background = 'gray.300';
+        }
+      },
+      
     wordControl: (state, action) => {
       const item = action.payload.trim();
       

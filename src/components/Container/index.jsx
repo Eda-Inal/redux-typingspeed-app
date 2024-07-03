@@ -15,10 +15,11 @@ function Area() {
 
   return (
     <div>
-      <Container maxW='3xl' bg='gray.100' overflow='hidden' centerContent>
+      
         <Box 
           padding={4} 
-          bg='green.100' 
+          bg='yellow.100' 
+          borderRadius={5}
           marginY={3} 
           maxW='xl' 
           height={100} 
@@ -41,7 +42,7 @@ function Area() {
             </Text>
           ))}
         </Box>
-      </Container>
+      
     </div>
   );
 }
