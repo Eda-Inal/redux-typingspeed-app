@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import All from "./components/All/all";
 import { ChakraProvider } from "@chakra-ui/react";
 import {
   ChakraBaseProvider,
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <ChakraProvider>
-       
+       <All/>
       </ChakraProvider>
      <h1>{value}</h1>
     </div>
