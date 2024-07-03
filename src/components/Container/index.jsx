@@ -19,9 +19,9 @@ function Area() {
     <Container maxW='3xl' bg='gray.100' overflow='hidden' centerContent>
       <Box 
         padding={4} 
-        bg='pink.100' 
+        bg='green.100' 
         marginY={3} 
-        width='xl' 
+        maxW='xl' 
         height={100} 
         overflow='hidden' 
         color='black'

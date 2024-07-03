@@ -11,7 +11,7 @@ export const typingSlice = createSlice({
       const randomWords = [];
       for (let i = 0; i < 300; i++) {
         const randomIndex = Math.floor(Math.random() * words.length);
-        randomWords.push(words[randomIndex].turkish);  // Türkçe kelimeleri kullanıyoruz
+        randomWords.push(words[randomIndex].turkish); 
       }
       state.words = randomWords;
     }

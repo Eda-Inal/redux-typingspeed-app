@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <ChakraProvider>
-       <All/>
+       <All />
       </ChakraProvider>
      <h1>{value}</h1>
     </div>
