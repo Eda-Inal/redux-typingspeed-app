@@ -20,6 +20,8 @@ export const typingSlice = createSlice({
     randomWords: (state) => {
       const resetWords = state.words.map(word => ({ ...word, color: 'black', background: "none" }));
       const shuffledWords = [...resetWords];
+      state.correct = 0;
+      state.wrong =0;
     
       for (let i = shuffledWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

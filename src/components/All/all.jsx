@@ -6,6 +6,7 @@ import { Container, Flex, Spacer } from '@chakra-ui/react';
 import Language from '../Language';
 import Shuffle from '../Shuffle';
 import Time from '../Time';
+import Card from '../Card';
 
 
 
@@ -13,7 +14,7 @@ function All() {
   return (
     <div>
       
-   
+   <Card/>
          <Container maxW='3xl'
          
          borderRadius={12}

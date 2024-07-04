@@ -11,10 +11,14 @@ function Card() {
         <Box  display='flex' justifyContent='flex-end' alignItems='flex-start'>
     <Button colorScheme='pink'><IoCloseSharp /></Button> </Box> 
 
-    <Box  p={4}  color='black' display='flex' justifyContent='center' alignItems='center'>
-    
+    <Box  p={4}  color='black' display='flex' justifyContent='center' >
+    <Text>asad</Text>
+    </Box>
+    <Box  p={4}  color='black' display='flex' justifyContent='center' >
+    <Text>asad</Text>
+    </Box>
  
-</Box>
+
 
        </Box> 
         

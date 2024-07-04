@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button } from '@chakra-ui/react'
-import { FaShuffle } from "react-icons/fa6";
 import { MdOutlineRestartAlt } from "react-icons/md";
 import { randomWords,resetTimer } from '../../redux/typingSlice';
 import { useDispatch } from 'react-redux';
 function Shuffle() {
     const dispatch = useDispatch();
+
   return (
     <div>
       <Button bg="pink.300"  
@@ -13,7 +13,8 @@ function Shuffle() {
             <MdOutlineRestartAlt onClick={() =>{ 
         dispatch(randomWords());
         dispatch(resetTimer());
-        
+
+
 
         }}  />
    
