@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import words from "../words/words.json";
 
+
 // Kelimeleri 'color' ile birlikte başlatmak için words.json'u modifiye edelim
 const wordsWithColor = words.map(word => ({ ...word, color: 'black',background : "none" }));
 
@@ -11,6 +12,8 @@ export const typingSlice = createSlice({
     correct: 0,
     false: 0,
     currentWordIndex: 0,
+    language : "turkish",
+    isTurkish : true,
   },
   reducers: {
     randomWords: (state) => {
@@ -34,9 +37,11 @@ export const typingSlice = createSlice({
       
     wordControl: (state, action) => {
       const item = action.payload.trim();
+      const language = state.language
+    
       
       const currentWord = state.words[state.currentWordIndex];
-      if (currentWord.turkish === item) {
+      if (currentWord.turkish === item || currentWord.english === item) {
         currentWord.color = 'green'; // Doğru kelimenin rengini yeşil yapalım
         state.correct = state.correct +1;
       } else {
@@ -52,9 +57,22 @@ export const typingSlice = createSlice({
         state.words[state.currentWordIndex].background = 'gray.300';
       }
     },
+    languageControl : (state,action) => {
+const selectedLanguage = action.payload;
+if(selectedLanguage === "turkish") {
+state.isTurkish = true;
+state.language = "turkish";
+
+}
+else{
+    state.isTurkish = false;
+    state.language = "english";
+}
+
+    }
     
   }
 });
 
-export const { randomWords, wordControl } = typingSlice.actions;
+export const { randomWords, wordControl,languageControl } = typingSlice.actions;
 export default typingSlice.reducer;
