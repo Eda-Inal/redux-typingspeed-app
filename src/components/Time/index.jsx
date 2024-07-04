@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { decrementTimer } from '../../redux/typingSlice';
+import { decrementTimer,toggleCardVisibility } from '../../redux/typingSlice';
 
 function Time() {
   const dispatch = useDispatch();
@@ -17,6 +17,12 @@ function Time() {
       return () => clearInterval(intervalId);
     }
   }, [isTimerRunning, dispatch]);
+  useEffect(() => {
+    if (timer === 0) {
+      dispatch(toggleCardVisibility());
+    }
+  }, [timer, dispatch]);
+  
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);

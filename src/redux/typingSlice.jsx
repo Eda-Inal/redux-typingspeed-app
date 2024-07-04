@@ -14,6 +14,7 @@ export const typingSlice = createSlice({
     language: "turkish",
     isTurkish: true,
     timer: 60,
+    isCardVisible: false,
     isTimerRunning: false,
   },
   reducers: {
@@ -84,8 +85,11 @@ export const typingSlice = createSlice({
     resetCurrentWordIndex: (state) => {
       state.currentWordIndex = 0;
     },
+    toggleCardVisibility: (state) => {
+      state.isCardVisible = !state.isCardVisible;
+    },
   }
 });
 
-export const { randomWords, wordControl, languageControl, decrementTimer, resetTimer, startTimer, shiftRows, resetCurrentWordIndex } = typingSlice.actions;
+export const { randomWords, wordControl, languageControl, decrementTimer, resetTimer, startTimer, shiftRows, resetCurrentWordIndex, toggleCardVisibility } = typingSlice.actions;
 export default typingSlice.reducer;
