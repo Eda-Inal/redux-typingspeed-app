@@ -8,16 +8,21 @@ import Shuffle from '../Shuffle';
 import Time from '../Time';
 
 
+
 function All() {
   return (
     <div>
+      
+   
          <Container maxW='3xl'
+         
          borderRadius={12}
           bg='pink.100' 
           overflow='hidden'
          mt={28}
         
            centerContent>
+              
         
 <Flex  gap={36} alignItems={'center'}>
 

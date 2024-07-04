@@ -10,7 +10,7 @@ export const typingSlice = createSlice({
   initialState: {
     words: wordsWithColor, // Initial state kelimelerini color ile birlikte başlatalım
     correct: 0,
-    false: 0,
+    wrong: 0,
     currentWordIndex: 0,
     language : "turkish",
     isTurkish : true,
@@ -43,7 +43,7 @@ export const typingSlice = createSlice({
         state.correct += 1;
       } else {
         currentWord.color = 'red';
-        state.false += 1;
+        state.wrong+= 1;
       }
     
       currentWord.background = 'none';
