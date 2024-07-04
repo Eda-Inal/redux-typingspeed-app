@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container, Box, Text } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
-import { randomWords } from '../../redux/typingSlice';
+import { randomWords, resetTimer } from '../../redux/typingSlice';
 
 function Area() {
   const dispatch = useDispatch();
@@ -9,6 +9,8 @@ function Area() {
 
   useEffect(() => {
     dispatch(randomWords());
+    dispatch(resetTimer());
+
 
     
   }, [dispatch]);
