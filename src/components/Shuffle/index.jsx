@@ -13,6 +13,7 @@ function Shuffle() {
             <MdOutlineRestartAlt onClick={() =>{ 
         dispatch(randomWords());
         dispatch(resetTimer());
+        
 
         }}  />
    
