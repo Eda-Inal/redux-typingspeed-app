@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Text, Flex } from '@chakra-ui/react';
 import { IoCloseSharp } from "react-icons/io5";
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleCardVisibility } from '../../redux/typingSlice';
+import { toggleCardVisibility, randomWords } from '../../redux/typingSlice';
 
 function Card() {
   const { correct, wrong, isCardVisible } = useSelector((state) => state.typing);
@@ -39,7 +39,11 @@ function Card() {
           top={2}
           right={2}
           colorScheme='pink'
-          onClick={() => dispatch(toggleCardVisibility())}
+          onClick={() => {
+            dispatch(toggleCardVisibility())
+            dispatch(randomWords());
+          
+          }}
         >
           <IoCloseSharp />
         </Button>
