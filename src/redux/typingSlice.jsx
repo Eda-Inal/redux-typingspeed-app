@@ -54,17 +54,12 @@ export const typingSlice = createSlice({
         state.words[state.currentWordIndex].background = 'gray.300';
       }
 
-    
-      const wordsPerRow = 10; 
+      const wordsPerRow = 9; 
       if (state.currentWordIndex % wordsPerRow === 0) {
         state.currentRowIndex += 1;
       }
     },
-    shiftRows: (state) => {
-      const wordsPerRow = 10; 
-      state.currentRowIndex += 1;
-      state.currentWordIndex += wordsPerRow;
-    },
+   
     languageControl: (state, action) => {
       const selectedLanguage = action.payload;
       state.isTurkish = selectedLanguage === "turkish";
@@ -90,6 +85,5 @@ export const typingSlice = createSlice({
     },
   }
 });
-
-export const { randomWords, wordControl, languageControl, decrementTimer, resetTimer, startTimer, shiftRows, resetCurrentWordIndex, toggleCardVisibility } = typingSlice.actions;
+export const { randomWords, wordControl, languageControl, decrementTimer, resetTimer, startTimer,  resetCurrentWordIndex, toggleCardVisibility } = typingSlice.actions;
 export default typingSlice.reducer;

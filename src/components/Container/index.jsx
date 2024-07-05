@@ -1,28 +1,19 @@
+
 import React, { useEffect } from 'react';
 import { Container, Box, Text } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
-import { randomWords, shiftRows, resetTimer } from '../../redux/typingSlice';
+import { randomWords, resetTimer } from '../../redux/typingSlice';
 
 function Area() {
   const dispatch = useDispatch();
-  const { words, isTurkish, currentRowIndex } = useSelector((state) => state.typing);
+  const { words, isTurkish } = useSelector((state) => state.typing);
 
   useEffect(() => {
     dispatch(randomWords());
     dispatch(resetTimer());
   }, [dispatch]);
 
-  const wordsPerRow = 10; 
-  const startIndex = currentRowIndex * wordsPerRow;
-  const endIndex = startIndex + wordsPerRow * 3; // 
 
-  const visibleWords = words.slice(startIndex, endIndex);
-
-  useEffect(() => {
-    if (currentRowIndex > 0 && currentRowIndex % 3 === 0) {
-      dispatch(shiftRows());
-    }
-  }, [currentRowIndex, dispatch]);
 
   return (
     <div>
@@ -38,7 +29,7 @@ function Area() {
         whiteSpace='normal'
         wordBreak='break-word'
       >
-        {visibleWords.map((word, index) => (
+        {words.map((word, index) => (
           <Text 
             as='span' 
             key={index} 
@@ -57,5 +48,3 @@ function Area() {
 }
 
 export default Area;
-
-
