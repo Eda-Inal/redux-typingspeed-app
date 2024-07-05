@@ -13,15 +13,18 @@ function TextBox() {
   
   const handleKeyDown = (event) => {
     if (event.key === ' ') {
+      if (input.trim() === '') {  // Eğer input boşsa, işlemi durdur
+        return;
+      }
       if (!isTimerRunning) {
         dispatch(startTimer());
       }
       dispatch(wordControl(input));
-   
-
+  
       setInput("");
     }
   };
+  
 
   return (
     <div>

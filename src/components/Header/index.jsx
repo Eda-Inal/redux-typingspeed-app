@@ -5,7 +5,7 @@ function Header() {
   return (
     <div>
       
-      <Heading mt={5} color='pink.300' mb={10}>Typing Speed App</Heading>
+      <Heading mt={5} color='pink.300' fontSize="40px" mb={10}>Typing Speed App</Heading>
      
     </div>
   )

@@ -16,7 +16,6 @@ function All() {
         maxW='3xl'
         borderRadius={12}
         bg='pink.100'
-        overflow='hidden'
         mt={28}
         centerContent
       >

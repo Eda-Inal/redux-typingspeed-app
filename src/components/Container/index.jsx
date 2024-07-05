@@ -28,13 +28,14 @@ function Area() {
         color='black'
         whiteSpace='normal'
         wordBreak='break-word'
+      
       >
         {words.map((word, index) => (
           <Text 
             as='span' 
             key={index} 
             mr={2} 
-            fontSize='18px' 
+            fontSize='19px' 
             whiteSpace='nowrap'
             bg={word.background}
             color={word.color}
