@@ -52,6 +52,13 @@ function Card() {
         </Text>
         <Text fontSize='lg'>Correct: {correct}</Text>
         <Text fontSize='lg'>Wrong: {wrong}</Text>
+        <Button colorScheme='pink'
+         onClick={() => {
+          dispatch(toggleCardVisibility())
+          dispatch(randomWords())
+        
+        }}
+        >Play Again!</Button>
       </Box>
     </Box>
   );
