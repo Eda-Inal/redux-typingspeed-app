@@ -1,1 +1,1 @@
-### Live  [Live]([https://duckduckgo.com](https://typingspeedap.netlify.app/)).
+### Live  [Live](https://typingspeedap.netlify.app/)).
