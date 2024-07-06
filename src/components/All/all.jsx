@@ -7,6 +7,7 @@ import Language from '../Language';
 import Shuffle from '../Shuffle';
 import Time from '../Time';
 import Card from '../Card';
+import Footer from '../Footer';
 
 function All() {
   return (
@@ -30,6 +31,7 @@ function All() {
           <Shuffle />
           <Time />
         </Flex>
+        <Footer/>
       </Container>
     </div>
   );
