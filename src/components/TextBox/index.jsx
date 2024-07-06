@@ -1,7 +1,7 @@
 import { Input } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {  wordControl,startTimer } from '../../redux/typingSlice';
+import { wordControl, startTimer } from '../../redux/typingSlice';
 
 function TextBox() {
   const dispatch = useDispatch();
@@ -10,40 +10,34 @@ function TextBox() {
   console.log("correct", correct);
   const [input, setInput] = useState("");
 
-  
-  const handleKeyDown = (event) => {
-    if (event.key === ' ') {
-      if (input.trim() === '') {  // Eğer input boşsa, işlemi durdur
+  const handleChange = (e) => {
+    const value = e.target.value;
+    if (value.includes(' ')) {  // Eğer input boşluk içeriyorsa, işlemi tetikle
+      const word = value.trim(); // Kelimeyi alın ve boşlukları temizleyin
+      if (word === '') {  // Eğer kelime boşsa, işlemi durdur
         return;
       }
       if (!isTimerRunning) {
         dispatch(startTimer());
       }
-      dispatch(wordControl(input));
-  
-      setInput("");
+      dispatch(wordControl(word));
+      setInput("");  // Input'u sıfırla
+    } else {
+      setInput(value);  // Input değerini güncelle
     }
   };
-  
 
   return (
     <div>
-    
-        <Input 
-        
-          bg="white"
-          onKeyDown={handleKeyDown}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          centerContent
-          maxWidth='400px'
-         
-         
-          _focusVisible={{
-            outline: "none",
-          }}
-        />
-      
+      <Input
+        bg="white"
+        value={input}
+        onChange={handleChange}
+        maxWidth='400px'
+        _focusVisible={{
+          outline: "none",
+        }}
+      />
     </div>
   );
 }
