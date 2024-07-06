@@ -7,6 +7,7 @@ function Area() {
   const dispatch = useDispatch();
   const { words, isTurkish, currentWordIndex } = useSelector((state) => state.typing);
   const wordRefs = useRef([]);
+  const containerRef = useRef();
 
   useEffect(() => {
     dispatch(randomWords());
@@ -15,22 +16,35 @@ function Area() {
 
   useEffect(() => {
     if (wordRefs.current[currentWordIndex]) {
-      wordRefs.current[currentWordIndex].scrollIntoView({ behavior: 'smooth' });
+      const wordElement = wordRefs.current[currentWordIndex];
+      const containerElement = containerRef.current;
+      
+      if (wordElement && containerElement) {
+        const containerRect = containerElement.getBoundingClientRect();
+        const wordRect = wordElement.getBoundingClientRect();
+
+        if (wordRect.bottom > containerRect.bottom) {
+          containerElement.scrollTop += wordRect.bottom - containerRect.bottom;
+        }
+      }
     }
   }, [currentWordIndex]);
 
   return (
     <Box 
+      ref={containerRef}
+      id='word-container' // Container'a id ekleyin
       padding={4} 
       bg='yellow.100' 
       borderRadius={5}
       marginY={3} 
       maxW='xl' 
       height={100} 
-      overflow='hidden' 
+      overflow='hidden' // Kaydırma çubuğunu gizlemek için overflow'u hidden olarak ayarla
       color='black'
       whiteSpace='normal'
       wordBreak='break-word'
+      position='relative' // Relative positioning for better control
     >
       {words.map((word, index) => (
         <Text 
@@ -51,4 +65,5 @@ function Area() {
 }
 
 export default Area;
+
 
