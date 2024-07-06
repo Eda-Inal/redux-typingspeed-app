@@ -41,7 +41,7 @@ function Card() {
           colorScheme='pink'
           onClick={() => {
             dispatch(toggleCardVisibility())
-            dispatch(randomWords());
+            dispatch(randomWords())
           
           }}
         >

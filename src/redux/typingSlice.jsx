@@ -22,7 +22,7 @@ export const typingSlice = createSlice({
       const resetWords = state.words.map(word => ({ ...word, color: 'black', background: "none" }));
       const shuffledWords = [...resetWords];
       state.correct = 0;
-      state.wrong =0;
+      state.wrong = 0;
     
       for (let i = shuffledWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -58,8 +58,13 @@ export const typingSlice = createSlice({
       if (state.currentWordIndex % wordsPerRow === 0) {
         state.currentRowIndex += 1;
       }
+
+      if (state.currentWordIndex >= state.words.length) {
+        state.words.push(...state.words.splice(0, state.currentWordIndex));
+        state.currentWordIndex = 0;
+        state.currentRowIndex = 0;
+      }
     },
-   
     languageControl: (state, action) => {
       const selectedLanguage = action.payload;
       state.isTurkish = selectedLanguage === "turkish";
@@ -85,5 +90,6 @@ export const typingSlice = createSlice({
     },
   }
 });
-export const { randomWords, wordControl, languageControl, decrementTimer, resetTimer, startTimer,  resetCurrentWordIndex, toggleCardVisibility } = typingSlice.actions;
+
+export const { randomWords, wordControl, languageControl, decrementTimer, resetTimer, startTimer, resetCurrentWordIndex, toggleCardVisibility } = typingSlice.actions;
 export default typingSlice.reducer;
