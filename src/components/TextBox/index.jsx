@@ -36,7 +36,7 @@ function TextBox() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           centerContent
-          maxW='800px'
+          maxWidth='400px'
          
          
           _focusVisible={{

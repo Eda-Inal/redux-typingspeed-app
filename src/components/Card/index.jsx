@@ -1,15 +1,23 @@
 import React from 'react';
-import { Box, Button, Text, Flex } from '@chakra-ui/react';
+import { Box, Button, Text } from '@chakra-ui/react';
 import { IoCloseSharp } from "react-icons/io5";
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleCardVisibility, randomWords } from '../../redux/typingSlice';
+import { toggleCardVisibility, randomWords,resetTimer } from '../../redux/typingSlice';
 
 function Card() {
   const { correct, wrong, isCardVisible } = useSelector((state) => state.typing);
   const dispatch = useDispatch();
 
   if (!isCardVisible) return null;
-
+ const handleCard = () => {
+    dispatch(toggleCardVisibility());
+    dispatch(randomWords());
+    dispatch(resetTimer());
+    const container = document.getElementById('word-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }
   return (
     <Box
       position='fixed'
@@ -38,12 +46,8 @@ function Card() {
           position='absolute'
           top={2}
           right={2}
-          colorScheme='pink'
-          onClick={() => {
-            dispatch(toggleCardVisibility())
-            dispatch(randomWords())
-          
-          }}
+          colorScheme='green'
+          onClick={()=>handleCard()}
         >
           <IoCloseSharp />
         </Button>
@@ -52,12 +56,8 @@ function Card() {
         </Text>
         <Text fontSize='lg'>Correct: {correct}</Text>
         <Text fontSize='lg'>Wrong: {wrong}</Text>
-        <Button colorScheme='pink'
-         onClick={() => {
-          dispatch(toggleCardVisibility())
-          dispatch(randomWords())
-        
-        }}
+        <Button colorScheme='green'
+         onClick={()=>handleCard()}
         >Play Again!</Button>
       </Box>
     </Box>

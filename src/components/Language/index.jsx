@@ -19,7 +19,8 @@ dispatch(resetTimer());
   return (
     <div>
 
-<Select bg="pink.300" _hover={{ bg: 'pink.200' }} 
+<Select bg="pink.300" fontSize="22px" _hover={{ bg: 'pink.200' }} 
+cursor="pointer" 
 onChange={(event) => {
   handleLanguage(event);
   changeRandomWords();

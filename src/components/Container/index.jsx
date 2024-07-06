@@ -35,8 +35,10 @@ function Area() {
       ref={containerRef}
       id='word-container' // Container'a id ekleyin
       padding={4} 
-      bg='yellow.100' 
+      bg='green.100' 
+      border="3px solid pink" 
       borderRadius={5}
+      pb={2}
       marginY={3} 
       maxW='xl' 
       height={100} 
@@ -51,7 +53,7 @@ function Area() {
           as='span' 
           key={index} 
           mr={2} 
-          fontSize='19px' 
+          fontSize='24px' 
           whiteSpace='nowrap'
           bg={word.background}
           color={word.color}

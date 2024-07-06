@@ -11,13 +11,14 @@ import Card from '../Card';
 function All() {
   return (
     <div>
-      <Card />
+      <Card  />
       <Container
         maxW='3xl'
         borderRadius={12}
-        bg='pink.100'
+        bg='green.100'
         mt={28}
         centerContent
+  
       >
         <Flex gap={36} alignItems={'center'}>
           <Header />

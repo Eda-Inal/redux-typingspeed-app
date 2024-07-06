@@ -46,7 +46,7 @@ function Time() {
 
   return (
     <div>
-      <Box as='button' borderRadius='3xl' bg='pink.300' color='black' px={2} h='40px'>
+      <Box as='button' borderRadius='3xl' bg='pink.300' fontSize={20} color='black' px={2} h='40px'>
         {formatTime(timer)}
       </Box>
     </div>

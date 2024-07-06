@@ -24,6 +24,7 @@ function Shuffle() {
         bg="pink.300"
         mb={10}
         _hover={{ bg: 'pink.200' }}
+        fontSize={20}
         variant='solid'
         onClick={handleRestart} // Restart işlemi için handleRestart fonksiyonunu kullan
       >
