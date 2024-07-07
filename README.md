@@ -1,7 +1,7 @@
 ## Typing Speed App 
 ### This project is a Patika.dev Redux module work.
 ***
-### [Live](https://typingspeeed.netlify.app/)
+### [Live](https://typingspeeddapp.netlify.app/)
 ***
 ### Design : Chakra Ui.
 ### Uses React and Redux Toolkit.
