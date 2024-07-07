@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
 import { MdOutlineRestartAlt } from "react-icons/md";
-import { randomWords, resetTimer } from '../../redux/typingSlice';
+import { randomWords, resetTimer,setInput } from '../../redux/typingSlice';
 import { useDispatch } from 'react-redux';
 
 function Shuffle() {
@@ -10,6 +10,7 @@ function Shuffle() {
   const handleRestart = () => {
     dispatch(randomWords());
     dispatch(resetTimer());
+    dispatch(setInput("")); 
 
     // Kelimelerin bulunduğu container'ın kaydırma konumunu sıfırlayın
     const container = document.getElementById('word-container');

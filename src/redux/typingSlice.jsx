@@ -16,6 +16,7 @@ export const typingSlice = createSlice({
     timer: 60,
     isCardVisible: false,
     isTimerRunning: false,
+    input : ""
   },
   reducers: {
     randomWords: (state) => {
@@ -35,6 +36,10 @@ export const typingSlice = createSlice({
         shuffledWords[0].background = 'gray.300';
       }
     },
+    setInput: (state, action) => {
+      state.input = action.payload;
+    }
+    ,
     wordControl: (state, action) => {
       const item = action.payload.trim();
       const currentWord = state.words[state.currentWordIndex];
@@ -91,5 +96,5 @@ export const typingSlice = createSlice({
   }
 });
 
-export const { randomWords, wordControl, languageControl, decrementTimer, resetTimer, startTimer, resetCurrentWordIndex, toggleCardVisibility } = typingSlice.actions;
+export const { randomWords, wordControl, languageControl, decrementTimer, resetTimer, startTimer, resetCurrentWordIndex, toggleCardVisibility,setInput } = typingSlice.actions;
 export default typingSlice.reducer;

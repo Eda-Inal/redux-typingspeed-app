@@ -1,14 +1,13 @@
 import { Input } from '@chakra-ui/react';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { wordControl, startTimer } from '../../redux/typingSlice';
+import { wordControl, startTimer, setInput } from '../../redux/typingSlice';
 
 function TextBox() {
   const dispatch = useDispatch();
   const correct = useSelector((state) => state.typing.correct);
+  const input = useSelector((state) => state.typing.input);
   const isTimerRunning = useSelector((state) => state.typing.isTimerRunning);
   console.log("correct", correct);
-  const [input, setInput] = useState("");
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -21,9 +20,9 @@ function TextBox() {
         dispatch(startTimer());
       }
       dispatch(wordControl(word));
-      setInput("");  // Input'u sıfırla
+      dispatch(setInput(""));  // Input'u sıfırla
     } else {
-      setInput(value);  // Input değerini güncelle
+      dispatch(setInput(value));  // Input değerini güncelle
     }
   };
 
